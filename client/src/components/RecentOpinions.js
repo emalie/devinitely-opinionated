@@ -7,6 +7,9 @@ const OpinionContainer = styled.div`
     color: var(--color-secondary);
     box-shadow: 0 0 8px black;
     padding: 1.3rem;
+    @media screen and (max-width: 1000px) {
+        grid-column: 1 / 4;
+    }
 `;
 
 const CardTitle = styled.h2`
@@ -18,7 +21,7 @@ const CardTitle = styled.h2`
 const RecentOpinions = () => {
     return (
         <OpinionContainer>
-            <CardTitle>Recent Opinions...</CardTitle>
+            <CardTitle>Recently Posted...</CardTitle>
         </OpinionContainer>
     );
 };

@@ -7,11 +7,15 @@ const LoginContainer = styled.div`
     color: var(--color-secondary);
     box-shadow: 0 0 8px black;
     padding: 1.3rem;
+    @media screen and (max-width: 1000px) {
+        grid-column: 1 / 4;
+    }
 `;
 
 const CardTitle = styled.h2`
     font-size: 2.5rem;
     padding: 1rem;
+    width: 90%;
     border-bottom: 8px solid var(--color-tertiary);
 `;
 
@@ -28,7 +32,6 @@ const CardBody = styled.p`
 `;
 
 const FlexContainer = styled.div`
-    height: 70%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
@@ -65,8 +68,8 @@ const LoginButton = styled.button`
 const LoginBox = () => {
     return (
         <LoginContainer>
-            <CardTitle>Join Us...</CardTitle>
             <FlexContainer>
+                <CardTitle>Join Us...</CardTitle>
                 <LoginCard>
                     <SmallCardTitle>Company Account</SmallCardTitle>
                     <CardBody>Get advice on your company website -- just post a link and our developers will check it out!</CardBody>
