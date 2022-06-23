@@ -13,7 +13,9 @@ const HomeContainer = styled.div`
 const MainContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.7rem;
+    margin: 2rem;
+    height: 75vh;
 `;
 
 const Home = () => {

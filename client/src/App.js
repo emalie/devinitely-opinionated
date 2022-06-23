@@ -12,6 +12,7 @@ const AppWrapper = styled.div`
   --color-secondary: #F8F8F8;
   --color-tertiary: #DAA520;
   --background-primary: #AEA7A3;
+  --background-secondary: #454B4B;
 `;
 
 function App() {
