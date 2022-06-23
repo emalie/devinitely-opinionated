@@ -1,7 +1,9 @@
 import './App.css';
 import styled from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Login from './pages/Login';
 
 const AppWrapper = styled.div`
   height: 100%;
@@ -17,7 +19,10 @@ const AppWrapper = styled.div`
 function App() {
   return (
     <AppWrapper>
-      <Home />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
     </AppWrapper>
   );
 }
