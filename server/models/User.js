@@ -26,9 +26,10 @@ const userSchema = new Schema(
         ref: 'Opinion'
       }
     ],
-    dev: {
+    affiliate: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     }
   },
   {
