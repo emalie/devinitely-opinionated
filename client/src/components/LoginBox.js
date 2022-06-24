@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const LoginContainer = styled.div`
     grid-column: 3 / 4;
@@ -78,7 +79,9 @@ const LoginBox = () => {
                     <SmallCardTitle>Developer Account</SmallCardTitle>
                     <CardBody>Give advice on the websites posted here!</CardBody>
                 </LoginCard>
-                <LoginButton>Login / Signup</LoginButton>
+                <Link to='/login'>
+                    <LoginButton>Login / Signup</LoginButton>
+                </Link>
             </FlexContainer>
         </LoginContainer>
     );
