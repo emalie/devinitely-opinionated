@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
+/* Creating a new schema for the opinion model. */
 const opinionSchema = new Schema(
   {
     opinionText: {
