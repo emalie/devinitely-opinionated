@@ -45,6 +45,12 @@ const FormInput = styled.input`
     font-size: 1.3rem;
 `;
 
+const FormSelect = styled.select`
+    padding: 0.8rem;
+    margin: 0.5rem;
+    font-size: 1.3rem;
+`;
+
 const SubmitBtn = styled.button`
     padding: 1.3rem;
     margin: 1rem;
@@ -64,26 +70,49 @@ const SubmitBtn = styled.button`
 
 const Login = () => {
     const [loginFormState, setLoginFormState] = useState({ username: '', password: '' });
-    const [signupFormState, setSignupFormState] = useState({ username: '', email: '', password: '' });
+    const [signupFormState, setSignupFormState] = useState({ username: '', email: '', password: '', accountType: '' });
+    const [errorMessage, setErrorMessage] = useState('');
     const [loginShowing, setLoginShowing] = useState(true);
+
+    const handleSwitch = e => {
+        e.preventDefault();
+
+        setLoginShowing(!loginShowing);
+    };
+
+    const handleChange = e => {
+        if (!e.target.value.length) {
+            setErrorMessage(`${e.target.name} is required.`);
+        } else {
+            setErrorMessage('');
+        }
+    };
 
     return (
         <div>
             <Header />
             <FormContainer>
-                <FormTitle>{loginShowing ? 'Login' : 'Signup'}</FormTitle>
+                <FormTitle>{loginShowing ? 'Login' : 'Sign Up'}</FormTitle>
                 {loginShowing ? 
                 <Form>
-                    <FormInput type='text' name='username' defaultValue={loginFormState.username} placeholder='Username' />
-                    <FormInput type='password' name='password' defaultValue={loginFormState.username} placeholder='Password' />
+                    <FormInput type='text' name='Username' defaultValue={loginFormState.username} placeholder='Username' onBlur={handleChange} />
+                    <FormInput type='password' name='Password' defaultValue={loginFormState.username} placeholder='Password' onBlur={handleChange} />
                     <SubmitBtn type='submit'>Submit</SubmitBtn>
+                    {errorMessage && <p>{errorMessage}</p>}
+                    <SubmitBtn onClick={handleSwitch}>Sign Up Instead</SubmitBtn>
                 </Form>
                  :
                 <Form>
-                    <FormInput type='text' name='signupUsername' defaultValue={signupFormState.username} placeholder='Username' />
-                    <FormInput type='text' name='signupEmail' defaultValue={signupFormState.username} placeholder='Email' />
-                    <FormInput type='password' name='signupPassword' defaultValue={signupFormState.username} placeholder='Password' />
+                    <FormInput type='text' name='Username' defaultValue={signupFormState.username} placeholder='Username' onBlur={handleChange} />
+                    <FormInput type='text' name='Email' defaultValue={signupFormState.email} placeholder='Email' onBlur={handleChange} />
+                    <FormInput type='password' name='Password' defaultValue={signupFormState.password} placeholder='Password' onBlur={handleChange} />
+                    <FormSelect defaultValue={signupFormState.accountType} onBlur={handleChange}>
+                        <option value='developer'>Developer</option>
+                        <option value='company'>Company</option>
+                    </FormSelect>
+                    {errorMessage && <p>{errorMessage}</p>}
                     <SubmitBtn type='submit'>Submit</SubmitBtn>
+                    <SubmitBtn onClick={handleSwitch}>Log In Instead</SubmitBtn>
                 </Form> 
                 }
             </FormContainer>
