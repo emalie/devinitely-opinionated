@@ -28,6 +28,7 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('opinions');
         },
+/* This is a query that is looking for an opinion by its affiliate. */
         affiliateUsers: async (parent, { affiliate }) => {
             return User.find({ affiliate })
                 .select('-__v -password')
