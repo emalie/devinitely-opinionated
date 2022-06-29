@@ -9,6 +9,7 @@ const OpinionContainer = styled.div`
     padding: 1.3rem;
     @media screen and (max-width: 1000px) {
         grid-column: 1 / 4;
+        min-height: 70vh;
     }
     overflow: auto;
     &::-webkit-scrollbar {

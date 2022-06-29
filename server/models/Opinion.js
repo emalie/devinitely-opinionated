@@ -21,7 +21,7 @@ const opinionSchema = new Schema(
     },
     accepted: {
         type: Boolean,
-        required: true,
+        // required: true,
         default: false
     },
     affiliateId: {

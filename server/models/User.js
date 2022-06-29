@@ -30,7 +30,7 @@ const userSchema = new Schema(
     ],
     affiliate: {
         type: Boolean,
-        required: true,
+        // required: true,
         default: false
     },
     affiliatedWith: {
