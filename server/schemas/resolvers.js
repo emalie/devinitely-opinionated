@@ -28,14 +28,23 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('opinions');
         },
+        affiliateUsers: async (parent, { affiliate }) => {
+            return User.find({ affiliate })
+                .select('-__v -password')
+                .populate('opinions');
+        },
 /* This is a query that is looking for an opinion by its username. */
         opinions: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Opinion.find(params).sort({ createdAt: -1 });
         },
 /* This is a query that is looking for an opinion by its id. */
-        opinion: async (parent, { id }) => {
+        opinion: async (parent, { _id }) => {
             return Opinion.findOne({ _id });
+        },
+/* This is a query that is looking for an opinion by its accepted status. */
+        acceptedOpinions: async (parent, { accepted }) => {
+            return Opinion.find({ accepted });
         }
     },
 
