@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_OPINIONS = gql`
-    query opinions {
+    query GetOpinions {
         opinions {
             createdAt
             opinionText

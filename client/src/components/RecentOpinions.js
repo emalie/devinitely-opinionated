@@ -56,65 +56,16 @@ const OpinionBody = styled.p`
 `;
 
 const RecentOpinions = () => {
-    const { loading, data } = useQuery(QUERY_OPINIONS);
-
-    // const mockData = [
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab1'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab2'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab3'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab4'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab5'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab6'
-    //     },
-    //     {
-    //         opinionText: 'Bla bla bla bla bla bla bla',
-    //         createdAt: 'June 28, 2022',
-    //         username: 'R3dRaccoon',
-    //         accepted: false,
-    //         _id: 'blablablab7'
-    //     },
-    // ];
+    const { loading, error, data } = useQuery(QUERY_OPINIONS);
+    if (!loading) {
+        console.log(data);
+    }
 
     return (
         <OpinionContainer>
             <CardTitle>Recently Posted...</CardTitle>
             <Opinions>
-                {data.map(opinion => (
+                {data.opinions.map(opinion => (
                     <Opinion key={opinion._id}>
                         <OpinionTitle>Opinion on {opinion.createdAt}</OpinionTitle>
                         <OpinionBody>{opinion.opinionText}</OpinionBody>

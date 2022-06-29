@@ -28,7 +28,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String): User
     affiliateUsers(affiliate: Boolean): [User]
-    opinions(username: String): [Opinion]
+    opinions: [Opinion]
     opinion(_id: ID!): Opinion
     acceptedOpinions(accepted: Boolean): [Opinion]
     affiliateOpinions(affiliateId: ID): [Opinion]
