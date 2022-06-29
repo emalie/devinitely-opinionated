@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import RecentOpinions from '../components/RecentOpinions';
 import LoginBox from '../components/LoginBox';
+import AuthService from '../utils/auth';
 
 const HomeContainer = styled.div`
     height: 100%;
@@ -19,6 +20,8 @@ const MainContainer = styled.div`
 `;
 
 const Home = () => {
+    const isLoggedIn = AuthService.loggedIn();
+
     return (
         <HomeContainer>
             <Header />
@@ -26,6 +29,7 @@ const Home = () => {
                 <RecentOpinions />
                 <LoginBox />
             </MainContainer>
+            {isLoggedIn && <div>Thanks for logging in!</div>}
         </HomeContainer>
     );
 };

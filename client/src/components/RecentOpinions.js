@@ -57,23 +57,22 @@ const OpinionBody = styled.p`
 
 const RecentOpinions = () => {
     const { loading, error, data } = useQuery(QUERY_OPINIONS);
-    if (!loading) {
+    if (!loading && !error) {
         console.log(data);
+        return (
+            <OpinionContainer>
+                <CardTitle>Recently Posted...</CardTitle>
+                <Opinions>
+                    {data.opinions.map(opinion => (
+                        <Opinion key={opinion._id}>
+                            <OpinionTitle>Opinion on {opinion.createdAt}</OpinionTitle>
+                            <OpinionBody>{opinion.opinionText}</OpinionBody>
+                        </Opinion>
+                    ))}
+                </Opinions>
+            </OpinionContainer>
+        );
     }
-
-    return (
-        <OpinionContainer>
-            <CardTitle>Recently Posted...</CardTitle>
-            <Opinions>
-                {data.opinions.map(opinion => (
-                    <Opinion key={opinion._id}>
-                        <OpinionTitle>Opinion on {opinion.createdAt}</OpinionTitle>
-                        <OpinionBody>{opinion.opinionText}</OpinionBody>
-                    </Opinion>
-                ))}
-            </Opinions>
-        </OpinionContainer>
-    );
 };
 
 export default RecentOpinions;
