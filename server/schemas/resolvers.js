@@ -56,6 +56,37 @@ const resolvers = {
 
             const token = signToken(user);
             return { user, token };
+        },
+        addOpinion: async (parent, args, context) => {
+            if (context.user) {
+                const opinion = await Opinion.create({ ...args, username: context.user.username });
+
+                await User.findbyIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { opinions: opinion._id } },
+                    { new: true }
+                );
+
+                return opinion;
+            }
+
+            throw new AuthenticationError('You must be logged in.');
+        },
+        deleteOpinion: async (parent, { id }, context) => {
+            if (context.user) {
+                const opinion = await Opinion.findByIdAndDelete(id);
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { opinions: id } },
+                    { new: true }
+                );
+
+                return opinion;
+            }
+
+            throw new AuthenticationError('You must be logged in.');
+
         }
     }
 };
