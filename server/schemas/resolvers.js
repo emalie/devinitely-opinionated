@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Opinion } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
@@ -24,14 +25,39 @@ const resolvers = {
                 .select('-__v -password')
                 .populate('opinions');
         },
-        thoughts: async (parent, { username }) => {
+        opinions: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return Thought.find(params).sort({ createdAt: -1 });
+            return Opinion.find(params).sort({ createdAt: -1 });
         },
-        thought: async (parent, { id }) => {
-            return Thought.findOne({ _id });
+        opinion: async (parent, { id }) => {
+            return Opinion.findOne({ _id });
         }
     },
+
+    Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+
+            return { user, token };
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Invalid email.');
+            }
+
+            const correctPassword = await user.isCorrectPassword(password);
+
+            if (!correctPassword) {
+                throw new AuthenticationError('Invalid password.');
+            }
+
+            const token = signToken(user);
+            return { user, token };
+        }
+    }
 };
 
 
