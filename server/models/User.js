@@ -30,8 +30,15 @@ const userSchema = new Schema(
     ],
     affiliate: {
         type: Boolean,
-        required: true,
+        // required: true,
         default: false
+    },
+    affiliatedWith: {
+      // e.g. Amazon, Apple, etc.
+        type: String,
+        required: false,
+        trim: true,
+        lowercase: true
     }
   },
   {

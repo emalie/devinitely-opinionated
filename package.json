@@ -1,0 +1,27 @@
+{
+  "name": "devinitely-opinionated",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd client && npm install && cd ../server && npm install",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd client && npm start\" \"cd server && npm run watch\"",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emalie/devinitely-opinionated.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emalie/devinitely-opinionated/issues"
+  },
+  "homepage": "https://github.com/emalie/devinitely-opinionated#readme",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
