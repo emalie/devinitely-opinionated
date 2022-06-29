@@ -1,3 +1,4 @@
+/* This code is a middleware that is used to authenticate the user. */
 const jwt = require('jsonwebtoken');
 
 const secret = 'idontliketoshare';
