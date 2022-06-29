@@ -1,0 +1,42 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@theboss.com",
+        "password": "admin",
+        "affiliate": "false",
+        "affiliatedWith": "",
+        "opinions": []
+    },
+    {
+        "username": "user",
+        "email": "user@submissive.com",
+        "password": "user",
+        "affiliate": "false",
+        "affiliatedWith": "",
+        "opinions": []
+    },
+    {
+        "username": "BillGates",
+        "email": "admin@microsoft.com",
+        "password": "microsoft",
+        "affiliate": "true",
+        "affiliatedWith": "microsoft",
+        "opinions": []
+    },
+    {
+        "username": "SteveJobs",
+        "email": "admin@apple.com",
+        "password": "apple",
+        "affiliate": "true",
+        "affiliatedWith": "apple",
+        "opinions": []
+    },
+    {
+        "username": "JeffBezos",
+        "email": "admin@amazon.com",
+        "password": "amazon",
+        "affiliate": "true",
+        "affiliatedWith": "",
+        "opinions": []
+    }
+]

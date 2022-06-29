@@ -27,7 +27,8 @@ const opinionSchema = new Schema(
     affiliateId: {
         type: String,
         required: false,
-        trim: true
+        trim: true,
+        lowercase: true
     }
   },
   {

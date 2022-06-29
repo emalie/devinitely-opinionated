@@ -37,7 +37,8 @@ const userSchema = new Schema(
       // e.g. Amazon, Apple, etc.
         type: String,
         required: false,
-        trim: true
+        trim: true,
+        lowercase: true
     }
   },
   {

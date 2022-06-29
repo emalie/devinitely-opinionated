@@ -1,0 +1,20 @@
+[
+    {
+        "opinionText": "Amazon! The buttons suck!",
+        "username": "user",
+        "accepted": "false",
+        "affiliateId": "amazon"
+    },
+    {
+        "opinionText": "The page looks tacky, I could improve it for you.",
+        "username": "user",
+        "accepted": "false",
+        "affiliateId": "microsoft"
+    },
+    {
+        "opinionText": "The images all break on Firefox.",
+        "username": "user",
+        "accepted": "true",
+        "affiliateId": "apple"
+    }
+]
