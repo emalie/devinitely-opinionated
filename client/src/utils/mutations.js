@@ -15,3 +15,12 @@ export const SIGNUP_USER = gql`
         }
     }
 `;
+
+export const ADD_OPINION = gql`
+    mutation addOpinion($opinionText: String!) {
+        addOpinion(opinionText: $opinionText) {
+            createdAt
+            opinionText
+        }
+    }
+`;
