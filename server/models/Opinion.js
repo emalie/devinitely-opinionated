@@ -23,6 +23,11 @@ const opinionSchema = new Schema(
         type: Boolean,
         required: true,
         default: false
+    },
+    affiliateId: {
+        type: String,
+        required: false,
+        trim: true
     }
   },
   {

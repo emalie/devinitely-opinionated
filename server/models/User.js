@@ -32,6 +32,12 @@ const userSchema = new Schema(
         type: Boolean,
         required: true,
         default: false
+    },
+    affiliatedWith: {
+      // e.g. Amazon, Apple, etc.
+        type: String,
+        required: false,
+        trim: true
     }
   },
   {
