@@ -29,7 +29,6 @@ const Home = () => {
                 <RecentOpinions />
                 <LoginBox />
             </MainContainer>
-            {isLoggedIn && <div>Thanks for logging in!</div>}
         </HomeContainer>
     );
 };
