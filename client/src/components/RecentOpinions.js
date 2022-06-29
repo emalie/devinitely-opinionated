@@ -1,5 +1,8 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import styled from 'styled-components';
+
+import { QUERY_OPINIONS } from '../utils/queries';
 
 const OpinionContainer = styled.div`
     grid-column: 1 / 3;
@@ -53,66 +56,68 @@ const OpinionBody = styled.p`
 `;
 
 const RecentOpinions = () => {
-    const mockData = [
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab1'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab2'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab3'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab4'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab5'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab6'
-        },
-        {
-            opinionText: 'Bla bla bla bla bla bla bla',
-            createdAt: 'June 28, 2022',
-            username: 'R3dRaccoon',
-            accepted: false,
-            _id: 'blablablab7'
-        },
-    ];
+    const { loading, data } = useQuery(QUERY_OPINIONS);
+
+    // const mockData = [
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab1'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab2'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab3'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab4'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab5'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab6'
+    //     },
+    //     {
+    //         opinionText: 'Bla bla bla bla bla bla bla',
+    //         createdAt: 'June 28, 2022',
+    //         username: 'R3dRaccoon',
+    //         accepted: false,
+    //         _id: 'blablablab7'
+    //     },
+    // ];
 
     return (
         <OpinionContainer>
             <CardTitle>Recently Posted...</CardTitle>
             <Opinions>
-                {mockData.map(post => (
-                    <Opinion key={post._id}>
-                        <OpinionTitle>{post.username} on {post.createdAt}</OpinionTitle>
-                        <OpinionBody>{post.opinionText}</OpinionBody>
+                {data.map(opinion => (
+                    <Opinion key={opinion._id}>
+                        <OpinionTitle>Opinion on {opinion.createdAt}</OpinionTitle>
+                        <OpinionBody>{opinion.opinionText}</OpinionBody>
                     </Opinion>
                 ))}
             </Opinions>

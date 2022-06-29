@@ -86,7 +86,7 @@ token and returns the user and token. */
             if (context.user) {
                 const opinion = await Opinion.create({ ...args, username: context.user.username });
 
-                await User.findbyIdAndUpdate(
+                await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $push: { opinions: opinion._id } },
                     { new: true }
