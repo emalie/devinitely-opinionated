@@ -12,6 +12,8 @@
 ## Description <a name="description"></a>
 #### Devinitely-Opinionated can be seen as a social media targeting both developers and partnered businesses. On our platform business can post issues they are having and come into contract with developers to fix said issue. The real strength of the platform comes from developers being able to leave companies feedback about thier sites via our feedback form where business can then chooose to eiither ignore or implement the feedback. 
 
+![code](https://user-images.githubusercontent.com/97642221/176791758-0a85e11a-cfb1-40b5-9df2-d4351e56b5a9.gif)
+
 
 ## Setup <a name="setup"></a>
 #### npm install
