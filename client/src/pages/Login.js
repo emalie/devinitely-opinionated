@@ -38,10 +38,6 @@ const Form = styled.form`
     justify-content: space-around;
 `;
 
-const SignupForm = styled(Form)`
-    display: none;
-`;
-
 const FormInput = styled.input`
     padding: 0.8rem;
     margin: 0.5rem;
