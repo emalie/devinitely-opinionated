@@ -46,7 +46,6 @@
    <img src="https://github.com/Vrentadax.png?size=60"> Matthew
   </a>
   
-  
 <a href="https://github.com/brian7950">
    <img src="https://github.com/brian7950.png" width="60" height="60" />Brian
   </a>
@@ -54,8 +53,6 @@
 <a href="https://github.com/emalie">
   <img src="https://github.com/emalie.png" width="60" height="60" />Emily
   </a>
-  
-
   
 <a href="https://github.com/bfranks3">
   <img src="https://github.com/bfranks3.png?size=60" /> Brandon
